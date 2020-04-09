@@ -15,7 +15,7 @@ ToolboxOpenCV::ToolboxOpenCV(ImageModifierApp *parent)
 	connect(ui.toolBtnCannyFilter, &QPushButton::pressed, [this]() { app->ResetImage(); app->transformed->CannyFilter(app->lowThreshold, app->highThreshold); });
 	connect(ui.toolBtnDetectEdge, &QPushButton::pressed, [this]() { app->ResetImage(); app->transformed->EdgeDetection(); });
 	connect(ui.toolBtnDetectVertex, &QPushButton::pressed, [this]() { app->ResetImage(); app->transformed->VertexDetection(); });
-	connect(ui.toolBtnDetectObject, &QPushButton::pressed, [this]() { app->ResetImage(); app->transformed->ObjectDetection(); });
+	connect(ui.toolBtnDetectObject, &QPushButton::pressed, [this]() { app->ResetImage(); app->transformed->ObjectDetection(app->lowThreshold, app->highThreshold); });
 
 	app->waitingWidgetOnReset.append({ ui.toolBtnCannyFilter, ui.toolBtnDetectEdge, ui.toolBtnDetectVertex, ui.toolBtnDetectObject });
 }

@@ -2,6 +2,9 @@
 using namespace cv;
 using namespace std;
 
+#include <QMessageBox>
+
+
 ImageOpenCV::ImageOpenCV(QLabel* lab)
 	: content(lab)
 {
@@ -88,102 +91,25 @@ void ImageOpenCV::VertexDetection(bool update)
 	if (update) Update();
 }
 
-void ImageOpenCV::ObjectDetection(bool update)
+void ImageOpenCV::ObjectDetection(int lowThreshold, int highThreshold, double minArea, double boxMaxRatio, bool update)
 {
-	/*for (int i = 0; i < image.rows; i++) {
-		for (int j = 0; j < image.cols; j++) {
-			if (image.at<Vec3b>(i, j) == Vec3b(255, 255, 255))
-			{
-				image.at<Vec3b>(i, j)[0] = 0;
-				image.at<Vec3b>(i, j)[1] = 0;
-				image.at<Vec3b>(i, j)[2] = 0;
-			}
-		}
-	}
 
-	Mat kernel = (Mat_<float>(3, 3) <<
-		1, 1, 1,
-		1, -8, 1,
-		1, 1, 1);
-	Mat imgLaplacian;
-	filter2D(image, imgLaplacian, CV_32F, kernel);
-	Mat sharp;
-	image.convertTo(sharp, CV_32F);
-	image = sharp - imgLaplacian;
-	image.convertTo(image, CV_8UC3);
-	Mat sharpen = image;
-
-	cvtColor(image, image, COLOR_BGR2GRAY);
-	threshold(image, image, 40, 255, THRESH_BINARY | THRESH_OTSU);
-
-	distanceTransform(image, image, DIST_L2, 3);
-	normalize(image, image, 0, 1.0, NORM_MINMAX);
-
-	threshold(image, image, 0.4, 1.0, THRESH_BINARY);
-	Mat kernel1 = Mat::ones(3, 3, CV_8U);
-	dilate(image, image, kernel1);
-
-	image.convertTo(image, CV_8U);
-	vector<vector<Point>> contours;
-	findContours(image, contours, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
-	Mat markers = Mat::zeros(image.size(), CV_32S);
-	for (size_t i = 0; i < contours.size(); i++)
-		drawContours(markers, contours, static_cast<int>(i), Scalar(static_cast<int>(i) + 1), -1);
-	circle(markers, Point(5, 5), 3, Scalar(255), -1);
-
-	watershed(sharpen, markers);
-	Mat mark;
-	markers.convertTo(mark, CV_8U);
-	bitwise_not(mark, mark);
-	vector<Vec3b> colors;
-	for (size_t i = 0; i < contours.size(); i++)
-	{
-		int b = theRNG().uniform(0, 256);
-		int g = theRNG().uniform(0, 256);
-		int r = theRNG().uniform(0, 256);
-		colors.push_back(Vec3b((uchar)b, (uchar)g, (uchar)r));
-	}
-	image = Mat::zeros(markers.size(), CV_8UC3);
-	for (int i = 0; i < markers.rows; i++)
-	{
-		for (int j = 0; j < markers.cols; j++)
-		{
-			int index = markers.at<int>(i, j);
-			if (index > 0 && index <= static_cast<int>(contours.size()))
-			{
-				image.at<Vec3b>(i, j) = colors[index - 1];
-			}
-		}
-	}*/
-
-	Mat imgGrayScale, tresh_binary;
+	Mat imgGrayScale;
 	cvtColor(image, imgGrayScale, CV_BGR2GRAY);
-	threshold(imgGrayScale, tresh_binary, 220, 255, THRESH_BINARY);
-	//Canny(imgGrayScale, imgGrayScale, 128, 255);
+	threshold(imgGrayScale, imgGrayScale, lowThreshold, highThreshold, THRESH_BINARY);
 
 	vector<vector<Point>> contours;
 	findContours(imgGrayScale.clone(), contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
-	vector<Point> pupil;
-	for (int i = 0; i < contours.size(); i++)
-	{
-		double area = contourArea(contours[i]);
-		Rect rect = boundingRect(contours[i]);
-		int radius = rect.width / 2;
-		if (area >= 30 && abs(1 - ((double)rect.width / (double)rect.height)) <= 0.2)
-		{
-			pupil = contours[i];
-		}
-	}
-	Rect region_of_interest = boundingRect(pupil);
-	Mat small_region = imgGrayScale(region_of_interest);
-	Mat small_mask = tresh_binary(region_of_interest);
-	image = small_region & (small_mask * 255);
 
-	/*vector<vector<Point>> contours;
-	vector<Vec4i> hierarchy;
-	findContours(imgGrayScale, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE);
-	for (size_t i = 0; i < contours.size(); i++)
-		drawContours(image, contours, (int)i, Scalar(0, 0, 255), 1, LINE_8, hierarchy, 0);*/
+	RNG rng(0xFFFFFFFF);
+	double reverseRatio = 1.0 / boxMaxRatio;
+	foreach(vector<Point> form, contours)
+	{
+		Rect rect = boundingRect(form);
+		double factor = (double)rect.width / (double)rect.height;
+		if (rect.area() >= minArea && factor < boxMaxRatio && factor > reverseRatio)
+			rectangle(image, rect, Scalar(rng.uniform(0, 256), rng.uniform(0, 256), rng.uniform(0, 256)), 2);
+	}
 
 	if (update) Update();
 }

@@ -26,7 +26,7 @@ public:
 	void CannyFilter(int lowThreshold, int highThreshold, bool update = true);
 	void EdgeDetection(bool update = true);
 	void VertexDetection(bool update = true);
-	void ObjectDetection(bool update = true);
+	void ObjectDetection(int lowThreshold, int highThreshold, double minArea = 250, double boxMaxRatio = 4.0, bool update = true);
 
 private:
 	QLabel* content;

@@ -26,7 +26,7 @@ ImageModifierApp::ImageModifierApp(QWidget *parent)
 	connect(ui.actionCannyFilter, &QAction::triggered, [this]() { ResetImage(); transformed->CannyFilter(lowThreshold, highThreshold); });
 	connect(ui.actionDetectEdges, &QAction::triggered, [this]() { ResetImage(); transformed->EdgeDetection(); });
 	connect(ui.actionDetectVertices, &QAction::triggered, [this]() { ResetImage(); transformed->VertexDetection(); });
-	connect(ui.actionDetectObjects, &QAction::triggered, [this]() { ResetImage(); transformed->ObjectDetection(); });
+	connect(ui.actionDetectObjects, &QAction::triggered, [this]() { ResetImage(); transformed->ObjectDetection(lowThreshold, highThreshold); });
 	connect(ui.actionOpenToolbox, &QAction::triggered, [this]() { toolBox->open(); toolBox->raise(); });
 
 	waitingActionOnReset.append({ ui.actionCannyFilter, ui.actionDetectEdges, ui.actionDetectVertices, ui.actionDetectObjects });
