@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ImageModifierApplication:  Fichier source de ToolboxOpenCV.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">ImageModifierApplication
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ToolboxOpenCV.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_toolbox_open_c_v_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_toolbox_open_c_v_8h.html">ToolboxOpenCV.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="class_toolbox_open_c_v.html#a8a7040473d6a8cf0ebe7d2398a4bf4ac">    3</a></span>&#160;<a class="code" href="class_toolbox_open_c_v.html#a8a7040473d6a8cf0ebe7d2398a4bf4ac">ToolboxOpenCV::ToolboxOpenCV</a>(<a class="code" href="class_image_modifier_app.html">ImageModifierApp</a> *parent)</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    : QDialog(Q_NULLPTR)</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.setupUi(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="class_toolbox_open_c_v.html#a5a08e7bdf8daf85ae48628e8ad2d6577">app</a> = parent;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    connect(<a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnReset, &amp;QPushButton::pressed, [<span class="keyword">this</span>]() { app-&gt;ResetImage(true); });</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    connect(<a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnBlur, &amp;QPushButton::pressed, [<span class="keyword">this</span>]() { app-&gt;ResetImage(); app-&gt;transformed-&gt;Blur(); });</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    connect(<a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnErode, &amp;QPushButton::pressed, [<span class="keyword">this</span>]() { app-&gt;ResetImage(); app-&gt;transformed-&gt;Erode(); });</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    connect(<a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnDilate, &amp;QPushButton::pressed, [<span class="keyword">this</span>]() { app-&gt;ResetImage(); app-&gt;transformed-&gt;Dilate(); });</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    connect(<a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnOpen, &amp;QPushButton::pressed, [<span class="keyword">this</span>]() { app-&gt;ResetImage(); app-&gt;transformed-&gt;Open(); });</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    connect(<a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnClose, &amp;QPushButton::pressed, [<span class="keyword">this</span>]() { app-&gt;ResetImage(); app-&gt;transformed-&gt;Close(); });</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    connect(<a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnCannyFilter, &amp;QPushButton::pressed, [<span class="keyword">this</span>]() { app-&gt;ResetImage(); app-&gt;transformed-&gt;CannyFilter(app-&gt;lowThreshold, app-&gt;highThreshold); });</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    connect(<a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnDetectEdge, &amp;QPushButton::pressed, [<span class="keyword">this</span>]() { app-&gt;ResetImage(); app-&gt;transformed-&gt;EdgeDetection(); });</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    connect(<a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnDetectVertex, &amp;QPushButton::pressed, [<span class="keyword">this</span>]() { app-&gt;ResetImage(); app-&gt;transformed-&gt;VertexDetection(); });</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    connect(<a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnDetectObject, &amp;QPushButton::pressed, [<span class="keyword">this</span>]() { app-&gt;ResetImage(); app-&gt;transformed-&gt;ObjectDetection(app-&gt;lowThreshold, app-&gt;highThreshold); });</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_toolbox_open_c_v.html#a5a08e7bdf8daf85ae48628e8ad2d6577">app</a>-&gt;<a class="code" href="class_image_modifier_app.html#abe37efa33a55fc813ab8583939a0e937">waitingWidgetOnReset</a>.append({ <a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnCannyFilter, <a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnDetectEdge, <a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnDetectVertex, <a class="code" href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ui</a>.toolBtnDetectObject });</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="a_toolbox_open_c_v_8h_html"><div class="ttname"><a href="_toolbox_open_c_v_8h.html">ToolboxOpenCV.h</a></div></div>
+<div class="ttc" id="aclass_toolbox_open_c_v_html_a8a7040473d6a8cf0ebe7d2398a4bf4ac"><div class="ttname"><a href="class_toolbox_open_c_v.html#a8a7040473d6a8cf0ebe7d2398a4bf4ac">ToolboxOpenCV::ToolboxOpenCV</a></div><div class="ttdeci">ToolboxOpenCV(ImageModifierApp *parent)</div><div class="ttdoc">Constructeur par défaut.</div><div class="ttdef"><b>Definition:</b> <a href="_toolbox_open_c_v_8cpp_source.html#l00003">ToolboxOpenCV.cpp:3</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html_abe37efa33a55fc813ab8583939a0e937"><div class="ttname"><a href="class_image_modifier_app.html#abe37efa33a55fc813ab8583939a0e937">ImageModifierApp::waitingWidgetOnReset</a></div><div class="ttdeci">QList&lt; QWidget * &gt; waitingWidgetOnReset</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8h_source.html#l00045">ImageModifierApp.h:45</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html"><div class="ttname"><a href="class_image_modifier_app.html">ImageModifierApp</a></div><div class="ttdoc">Application principale.</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8h_source.html#l00020">ImageModifierApp.h:20</a></div></div>
+<div class="ttc" id="aclass_toolbox_open_c_v_html_a5a08e7bdf8daf85ae48628e8ad2d6577"><div class="ttname"><a href="class_toolbox_open_c_v.html#a5a08e7bdf8daf85ae48628e8ad2d6577">ToolboxOpenCV::app</a></div><div class="ttdeci">ImageModifierApp * app</div><div class="ttdef"><b>Definition:</b> <a href="_toolbox_open_c_v_8h_source.html#l00034">ToolboxOpenCV.h:34</a></div></div>
+<div class="ttc" id="aclass_toolbox_open_c_v_html_a734b10c069d2f54ff5c834b273346e9a"><div class="ttname"><a href="class_toolbox_open_c_v.html#a734b10c069d2f54ff5c834b273346e9a">ToolboxOpenCV::ui</a></div><div class="ttdeci">Ui::Toolbox ui</div><div class="ttdef"><b>Definition:</b> <a href="_toolbox_open_c_v_8h_source.html#l00033">ToolboxOpenCV.h:33</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

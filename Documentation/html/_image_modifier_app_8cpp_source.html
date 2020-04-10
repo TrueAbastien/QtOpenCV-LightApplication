@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ImageModifierApplication:  Fichier source de ImageModifierApp.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">ImageModifierApplication
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ImageModifierApp.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_image_modifier_app_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_image_modifier_app_8h.html">ImageModifierApp.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;QFileDialog&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_toolbox_open_c_v_8h.html">ToolboxOpenCV.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_image_modifier_app.html#afaaef18ecf43a7f8d58b1d08688711c9">    7</a></span>&#160;<a class="code" href="class_image_modifier_app.html#afaaef18ecf43a7f8d58b1d08688711c9">ImageModifierApp::ImageModifierApp</a>(QWidget *parent)</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    : QMainWindow(parent), toolBox(new <a class="code" href="class_toolbox_open_c_v.html">ToolboxOpenCV</a>(this))</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.setupUi(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_image_modifier_app.html#a8c4bb1ad4b3c628af4d263c695c4be3d">original</a> = <span class="keyword">new</span> <a class="code" href="class_image_open_c_v.html">ImageOpenCV</a>(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.imgOriginal);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_image_modifier_app.html#ac3d73c18ae8881b6fc547a49a6d592f0">transformed</a> = <span class="keyword">new</span> <a class="code" href="class_image_open_c_v.html">ImageOpenCV</a>(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.imgTransformed);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// File</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionLoad, SIGNAL(triggered()), <span class="keyword">this</span>, SLOT(<a class="code" href="class_image_modifier_app.html#aa3a6a0c1f3c3ff6131c364763379b141">LoadImage</a>()));</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionSave, SIGNAL(triggered()), <span class="keyword">this</span>, SLOT(<a class="code" href="class_image_modifier_app.html#ab213d38d47aa77a6d29e5a4aa7ff44f7">SaveImage</a>()));</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// Tools</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.menuTransform-&gt;setEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionReset, &amp;QAction::triggered, [<span class="keyword">this</span>]() { ResetImage(true); });</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionBlur, &amp;QAction::triggered, [<span class="keyword">this</span>]() { ResetImage(); transformed-&gt;Blur(); });</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionErode, &amp;QAction::triggered, [<span class="keyword">this</span>]() { ResetImage(); transformed-&gt;Erode(); });</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionDilate, &amp;QAction::triggered, [<span class="keyword">this</span>]() { ResetImage(); transformed-&gt;Dilate(); });</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionOpening, &amp;QAction::triggered, [<span class="keyword">this</span>]() { ResetImage(); transformed-&gt;Open(); });</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionClosing, &amp;QAction::triggered, [<span class="keyword">this</span>]() { ResetImage(); transformed-&gt;Close(); });</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionCannyFilter, &amp;QAction::triggered, [<span class="keyword">this</span>]() { ResetImage(); transformed-&gt;CannyFilter(lowThreshold, highThreshold); });</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionDetectEdges, &amp;QAction::triggered, [<span class="keyword">this</span>]() { ResetImage(); transformed-&gt;EdgeDetection(); });</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionDetectVertices, &amp;QAction::triggered, [<span class="keyword">this</span>]() { ResetImage(); transformed-&gt;VertexDetection(); });</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionDetectObjects, &amp;QAction::triggered, [<span class="keyword">this</span>]() { ResetImage(); transformed-&gt;ObjectDetection(lowThreshold, highThreshold); });</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    connect(<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionOpenToolbox, &amp;QAction::triggered, [<span class="keyword">this</span>]() { toolBox-&gt;open(); toolBox-&gt;raise(); });</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_image_modifier_app.html#a6b745f259ff1173205f7f8f5d365ad0d">waitingActionOnReset</a>.append({ <a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionCannyFilter, <a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionDetectEdges, <a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionDetectVertices, <a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionDetectObjects });</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_image_modifier_app.html#a2ecab938d58741f03b810cf56580cde3">   35</a></span>&#160;<a class="code" href="class_image_modifier_app.html#a2ecab938d58741f03b810cf56580cde3">ImageModifierApp::~ImageModifierApp</a>()</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">delete</span> <a class="code" href="class_image_modifier_app.html#a8c4bb1ad4b3c628af4d263c695c4be3d">original</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">delete</span> <a class="code" href="class_image_modifier_app.html#ac3d73c18ae8881b6fc547a49a6d592f0">transformed</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">delete</span> <a class="code" href="class_image_modifier_app.html#ac9a89100ce4d6497fcb76b885126b4f7">toolBox</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_image_modifier_app.html#ab268ef943a1d0216c14487ed4b76a05f">   43</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_image_modifier_app.html#ab268ef943a1d0216c14487ed4b76a05f">ImageModifierApp::ResetImage</a>(<span class="keywordtype">bool</span> force)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.actionReset-&gt;isChecked() || force)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="class_image_modifier_app.html#ac3d73c18ae8881b6fc547a49a6d592f0">transformed</a>-&gt;<a class="code" href="class_image_open_c_v.html#a612a9f4fe3addbf02ce271569a0bbf05">setImage</a>(<a class="code" href="class_image_modifier_app.html#a8c4bb1ad4b3c628af4d263c695c4be3d">original</a>-&gt;<a class="code" href="class_image_open_c_v.html#af8e1b60fdacd04c929a42ec8843cd2f8">getImage</a>());</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_image_modifier_app.html#aa47197203775750883747c8555666a1a">releaseOnReset</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">else</span> <a class="code" href="class_image_modifier_app.html#aa47197203775750883747c8555666a1a">releaseOnReset</a>(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_image_modifier_app.html#aa47197203775750883747c8555666a1a">   53</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_image_modifier_app.html#aa47197203775750883747c8555666a1a">ImageModifierApp::releaseOnReset</a>(<span class="keywordtype">bool</span> val)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">foreach</span>(QAction* a, <a class="code" href="class_image_modifier_app.html#a6b745f259ff1173205f7f8f5d365ad0d">waitingActionOnReset</a>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        a-&gt;setEnabled(val);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">foreach</span>(QWidget* w, <a class="code" href="class_image_modifier_app.html#abe37efa33a55fc813ab8583939a0e937">waitingWidgetOnReset</a>)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        w-&gt;setEnabled(val);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_image_modifier_app.html#aa3a6a0c1f3c3ff6131c364763379b141">   61</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_image_modifier_app.html#aa3a6a0c1f3c3ff6131c364763379b141">ImageModifierApp::LoadImage</a>()</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    QString fileName = QFileDialog::getOpenFileName(<span class="keyword">this</span>, tr(<span class="stringliteral">&quot;Open Image&quot;</span>), <span class="stringliteral">&quot;&quot;</span>, tr(<span class="stringliteral">&quot;Image Files (*.png *.jpg * .jpeg *.bmp)&quot;</span>));</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> (!fileName.isEmpty())</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="class_image_modifier_app.html#a8c4bb1ad4b3c628af4d263c695c4be3d">original</a>-&gt;<a class="code" href="class_image_open_c_v.html#a612a9f4fe3addbf02ce271569a0bbf05">setImage</a>(cv::imread(fileName.toStdString()));</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ui</a>.menuTransform-&gt;setEnabled(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="class_image_modifier_app.html#ab268ef943a1d0216c14487ed4b76a05f">ResetImage</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span> (isMaximized())</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            showMaximized();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_image_modifier_app.html#ab213d38d47aa77a6d29e5a4aa7ff44f7">   77</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_image_modifier_app.html#ab213d38d47aa77a6d29e5a4aa7ff44f7">ImageModifierApp::SaveImage</a>()</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    QString fileName = QFileDialog::getSaveFileName(<span class="keyword">this</span>, tr(<span class="stringliteral">&quot;Save Image&quot;</span>), <span class="stringliteral">&quot;&quot;</span>, tr(<span class="stringliteral">&quot;Image Files (*.png *.jpg * .jpeg *.bmp)&quot;</span>));</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (!fileName.isEmpty() &amp;&amp; <a class="code" href="class_image_modifier_app.html#ac3d73c18ae8881b6fc547a49a6d592f0">transformed</a>-&gt;<a class="code" href="class_image_open_c_v.html#ac1e67195d47dc1287fcec1094713dab4">exists</a>())</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        cv::imwrite(fileName.toStdString(), <a class="code" href="class_image_modifier_app.html#ac3d73c18ae8881b6fc547a49a6d592f0">transformed</a>-&gt;<a class="code" href="class_image_open_c_v.html#af8e1b60fdacd04c929a42ec8843cd2f8">getImage</a>());</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_image_modifier_app_html_a8c4bb1ad4b3c628af4d263c695c4be3d"><div class="ttname"><a href="class_image_modifier_app.html#a8c4bb1ad4b3c628af4d263c695c4be3d">ImageModifierApp::original</a></div><div class="ttdeci">ImageOpenCV * original</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8h_source.html#l00042">ImageModifierApp.h:42</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html_ab213d38d47aa77a6d29e5a4aa7ff44f7"><div class="ttname"><a href="class_image_modifier_app.html#ab213d38d47aa77a6d29e5a4aa7ff44f7">ImageModifierApp::SaveImage</a></div><div class="ttdeci">void SaveImage()</div><div class="ttdoc">Sauvegarde l'image transformée.</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8cpp_source.html#l00077">ImageModifierApp.cpp:77</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html_a2ecab938d58741f03b810cf56580cde3"><div class="ttname"><a href="class_image_modifier_app.html#a2ecab938d58741f03b810cf56580cde3">ImageModifierApp::~ImageModifierApp</a></div><div class="ttdeci">~ImageModifierApp()</div><div class="ttdoc">Déstructeur par défaut.</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8cpp_source.html#l00035">ImageModifierApp.cpp:35</a></div></div>
+<div class="ttc" id="aclass_toolbox_open_c_v_html"><div class="ttname"><a href="class_toolbox_open_c_v.html">ToolboxOpenCV</a></div><div class="ttdoc">Dialogue affichant la boîte d'outils.</div><div class="ttdef"><b>Definition:</b> <a href="_toolbox_open_c_v_8h_source.html#l00017">ToolboxOpenCV.h:17</a></div></div>
+<div class="ttc" id="aclass_image_open_c_v_html_ac1e67195d47dc1287fcec1094713dab4"><div class="ttname"><a href="class_image_open_c_v.html#ac1e67195d47dc1287fcec1094713dab4">ImageOpenCV::exists</a></div><div class="ttdeci">bool exists() const</div><div class="ttdoc">Vérifie la présence d'une image.</div><div class="ttdef"><b>Definition:</b> <a href="_image_open_c_v_8cpp_source.html#l00025">ImageOpenCV.cpp:25</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html_ac3d73c18ae8881b6fc547a49a6d592f0"><div class="ttname"><a href="class_image_modifier_app.html#ac3d73c18ae8881b6fc547a49a6d592f0">ImageModifierApp::transformed</a></div><div class="ttdeci">ImageOpenCV * transformed</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8h_source.html#l00042">ImageModifierApp.h:42</a></div></div>
+<div class="ttc" id="aclass_image_open_c_v_html_af8e1b60fdacd04c929a42ec8843cd2f8"><div class="ttname"><a href="class_image_open_c_v.html#af8e1b60fdacd04c929a42ec8843cd2f8">ImageOpenCV::getImage</a></div><div class="ttdeci">cv::Mat getImage() const</div><div class="ttdoc">Accesseur sur l'image OpenCV sauvegardée.</div><div class="ttdef"><b>Definition:</b> <a href="_image_open_c_v_8cpp_source.html#l00020">ImageOpenCV.cpp:20</a></div></div>
+<div class="ttc" id="a_toolbox_open_c_v_8h_html"><div class="ttname"><a href="_toolbox_open_c_v_8h.html">ToolboxOpenCV.h</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html_ab268ef943a1d0216c14487ed4b76a05f"><div class="ttname"><a href="class_image_modifier_app.html#ab268ef943a1d0216c14487ed4b76a05f">ImageModifierApp::ResetImage</a></div><div class="ttdeci">void ResetImage(bool force=false)</div><div class="ttdoc">Réinitialise l'image actuelle.</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8cpp_source.html#l00043">ImageModifierApp.cpp:43</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html_a6b745f259ff1173205f7f8f5d365ad0d"><div class="ttname"><a href="class_image_modifier_app.html#a6b745f259ff1173205f7f8f5d365ad0d">ImageModifierApp::waitingActionOnReset</a></div><div class="ttdeci">QList&lt; QAction * &gt; waitingActionOnReset</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8h_source.html#l00044">ImageModifierApp.h:44</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html_abe37efa33a55fc813ab8583939a0e937"><div class="ttname"><a href="class_image_modifier_app.html#abe37efa33a55fc813ab8583939a0e937">ImageModifierApp::waitingWidgetOnReset</a></div><div class="ttdeci">QList&lt; QWidget * &gt; waitingWidgetOnReset</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8h_source.html#l00045">ImageModifierApp.h:45</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html_aaf1a5d090c832ddb08c66f9842228a1e"><div class="ttname"><a href="class_image_modifier_app.html#aaf1a5d090c832ddb08c66f9842228a1e">ImageModifierApp::ui</a></div><div class="ttdeci">Ui::ImageModifierAppClass ui</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8h_source.html#l00053">ImageModifierApp.h:53</a></div></div>
+<div class="ttc" id="a_image_modifier_app_8h_html"><div class="ttname"><a href="_image_modifier_app_8h.html">ImageModifierApp.h</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html_aa3a6a0c1f3c3ff6131c364763379b141"><div class="ttname"><a href="class_image_modifier_app.html#aa3a6a0c1f3c3ff6131c364763379b141">ImageModifierApp::LoadImage</a></div><div class="ttdeci">void LoadImage()</div><div class="ttdoc">Charge une nouvelle image originale.</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8cpp_source.html#l00061">ImageModifierApp.cpp:61</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html_ac9a89100ce4d6497fcb76b885126b4f7"><div class="ttname"><a href="class_image_modifier_app.html#ac9a89100ce4d6497fcb76b885126b4f7">ImageModifierApp::toolBox</a></div><div class="ttdeci">ToolboxOpenCV * toolBox</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8h_source.html#l00054">ImageModifierApp.h:54</a></div></div>
+<div class="ttc" id="aclass_image_open_c_v_html"><div class="ttname"><a href="class_image_open_c_v.html">ImageOpenCV</a></div><div class="ttdoc">Objet-widget couvrant un QLabel en tant qu'image OpenCV.</div><div class="ttdef"><b>Definition:</b> <a href="_image_open_c_v_8h_source.html#l00020">ImageOpenCV.h:20</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html_afaaef18ecf43a7f8d58b1d08688711c9"><div class="ttname"><a href="class_image_modifier_app.html#afaaef18ecf43a7f8d58b1d08688711c9">ImageModifierApp::ImageModifierApp</a></div><div class="ttdeci">ImageModifierApp(QWidget *parent=Q_NULLPTR)</div><div class="ttdoc">Constructeur par défaut.</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8cpp_source.html#l00007">ImageModifierApp.cpp:7</a></div></div>
+<div class="ttc" id="aclass_image_open_c_v_html_a612a9f4fe3addbf02ce271569a0bbf05"><div class="ttname"><a href="class_image_open_c_v.html#a612a9f4fe3addbf02ce271569a0bbf05">ImageOpenCV::setImage</a></div><div class="ttdeci">void setImage(cv::Mat img)</div><div class="ttdoc">Change l'image actuelle par celle spécifiée.</div><div class="ttdef"><b>Definition:</b> <a href="_image_open_c_v_8cpp_source.html#l00013">ImageOpenCV.cpp:13</a></div></div>
+<div class="ttc" id="aclass_image_modifier_app_html_aa47197203775750883747c8555666a1a"><div class="ttname"><a href="class_image_modifier_app.html#aa47197203775750883747c8555666a1a">ImageModifierApp::releaseOnReset</a></div><div class="ttdeci">void releaseOnReset(bool val)</div><div class="ttdoc">Mise à jour à la réinitialisation.</div><div class="ttdef"><b>Definition:</b> <a href="_image_modifier_app_8cpp_source.html#l00053">ImageModifierApp.cpp:53</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

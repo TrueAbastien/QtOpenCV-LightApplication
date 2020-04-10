@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>Image Modifier Application</Name>
+    <Version>1.0.0</Version>
+    <Title>Image Modifier Application - Installer</Title>
+    <Publisher>Bastien LEGOY</Publisher>
+    <StartMenuDir>OpenCV Image Modifier</StartMenuDir>
+    <TargetDir>@HomeDir@</TargetDir>
+</Installer>

@@ -1,4 +1,4 @@
-#include "ImageOpenCV.h"
+﻿#include "ImageOpenCV.h"
 using namespace cv;
 using namespace std;
 
@@ -93,7 +93,6 @@ void ImageOpenCV::VertexDetection(bool update)
 
 void ImageOpenCV::ObjectDetection(int lowThreshold, int highThreshold, double minArea, double boxMaxRatio, bool update)
 {
-
 	Mat imgGrayScale;
 	cvtColor(image, imgGrayScale, CV_BGR2GRAY);
 	threshold(imgGrayScale, imgGrayScale, lowThreshold, highThreshold, THRESH_BINARY);

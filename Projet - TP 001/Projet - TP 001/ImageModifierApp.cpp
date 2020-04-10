@@ -1,4 +1,4 @@
-#include "ImageModifierApp.h"
+﻿#include "ImageModifierApp.h"
 #include <QFileDialog>
 
 #include "ToolboxOpenCV.h"

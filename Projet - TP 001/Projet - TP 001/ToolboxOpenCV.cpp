@@ -1,4 +1,4 @@
-#include "ToolboxOpenCV.h"
+﻿#include "ToolboxOpenCV.h"
 
 ToolboxOpenCV::ToolboxOpenCV(ImageModifierApp *parent)
 	: QDialog(Q_NULLPTR)
