@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vertexdetection_55',['VertexDetection',['../class_image_open_c_v.html#aa50b974f595d6b90c75cde913d561e1a',1,'ImageOpenCV']]]
+  ['vertexdetection_57',['VertexDetection',['../class_image_open_c_v.html#aa50b974f595d6b90c75cde913d561e1a',1,'ImageOpenCV']]]
 ];

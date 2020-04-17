@@ -2,6 +2,7 @@
 #include <QFileDialog>
 
 #include "ToolboxOpenCV.h"
+#include "QScreen.h"
 
 
 ImageModifierApp::ImageModifierApp(QWidget *parent)
@@ -11,6 +12,12 @@ ImageModifierApp::ImageModifierApp(QWidget *parent)
 	original = new ImageOpenCV(ui.imgOriginal);
 	transformed = new ImageOpenCV(ui.imgTransformed);
 
+	// Set Maximum Size
+	QSize viewport = QGuiApplication::primaryScreen()->geometry().size();
+	imageMaximumWidth = QSize(viewport.width() / 2, viewport.height());
+	ui.imgOriginal->setMaximumSize(imageMaximumWidth);
+	ui.imgTransformed->setMaximumSize(imageMaximumWidth);
+
 	// File
 	connect(ui.actionLoad, SIGNAL(triggered()), this, SLOT(LoadImage()));
 	connect(ui.actionSave, SIGNAL(triggered()), this, SLOT(SaveImage()));
@@ -19,6 +26,7 @@ ImageModifierApp::ImageModifierApp(QWidget *parent)
 	ui.menuTransform->setEnabled(false);
 	connect(ui.actionReset, &QAction::triggered, [this]() { ResetImage(true); });
 	connect(ui.actionBlur, &QAction::triggered, [this]() { ResetImage(); transformed->Blur(); });
+	connect(ui.actionMonochrome, &QAction::triggered, [this]() { ResetImage(); transformed->BlackAndWhite(); });
 	connect(ui.actionErode, &QAction::triggered, [this]() { ResetImage(); transformed->Erode(); });
 	connect(ui.actionDilate, &QAction::triggered, [this]() { ResetImage(); transformed->Dilate(); });
 	connect(ui.actionOpening, &QAction::triggered, [this]() { ResetImage(); transformed->Open(); });
@@ -29,7 +37,7 @@ ImageModifierApp::ImageModifierApp(QWidget *parent)
 	connect(ui.actionDetectObjects, &QAction::triggered, [this]() { ResetImage(); transformed->ObjectDetection(lowThreshold, highThreshold); });
 	connect(ui.actionOpenToolbox, &QAction::triggered, [this]() { toolBox->open(); toolBox->raise(); });
 
-	waitingActionOnReset.append({ ui.actionCannyFilter, ui.actionDetectEdges, ui.actionDetectVertices, ui.actionDetectObjects });
+	waitingActionOnReset.append({ ui.actionMonochrome, ui.actionCannyFilter, ui.actionDetectEdges, ui.actionDetectVertices, ui.actionDetectObjects });
 }
 
 ImageModifierApp::~ImageModifierApp()

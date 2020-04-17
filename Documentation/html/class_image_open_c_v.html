@@ -123,6 +123,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac1e67195d47dc1287fcec1094713dab4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image_open_c_v.html#ac1e67195d47dc1287fcec1094713dab4">exists</a> () const</td></tr>
 <tr class="memdesc:ac1e67195d47dc1287fcec1094713dab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie la présence d'une image.  <a href="class_image_open_c_v.html#ac1e67195d47dc1287fcec1094713dab4">More...</a><br /></td></tr>
 <tr class="separator:ac1e67195d47dc1287fcec1094713dab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a693e6c915e2a587c6e0b71c86aae5c13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image_open_c_v.html#a693e6c915e2a587c6e0b71c86aae5c13">BlackAndWhite</a> (bool update=true)</td></tr>
+<tr class="memdesc:a693e6c915e2a587c6e0b71c86aae5c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforme l'image en noir et blanc.  <a href="class_image_open_c_v.html#a693e6c915e2a587c6e0b71c86aae5c13">More...</a><br /></td></tr>
+<tr class="separator:a693e6c915e2a587c6e0b71c86aae5c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55bae59fb47d2ed8ce97a2f17cd01744"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image_open_c_v.html#a55bae59fb47d2ed8ce97a2f17cd01744">Blur</a> (int radius=2, bool update=true)</td></tr>
 <tr class="memdesc:a55bae59fb47d2ed8ce97a2f17cd01744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique l'effet de Flou sur l'image.  <a href="class_image_open_c_v.html#a55bae59fb47d2ed8ce97a2f17cd01744">More...</a><br /></td></tr>
 <tr class="separator:a55bae59fb47d2ed8ce97a2f17cd01744"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -195,6 +198,33 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a693e6c915e2a587c6e0b71c86aae5c13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a693e6c915e2a587c6e0b71c86aae5c13">&#9670;&nbsp;</a></span>BlackAndWhite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImageOpenCV::BlackAndWhite </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>update</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transforme l'image en noir et blanc. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">update</td><td>Force l'update sur l'image si nécessaire</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Transforme manuellement l'image en noir et blanc pour faciliter le traitement d'erosion et de dilation. </p>
+
+</div>
+</div>
 <a id="a55bae59fb47d2ed8ce97a2f17cd01744"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55bae59fb47d2ed8ce97a2f17cd01744">&#9670;&nbsp;</a></span>Blur()</h2>
 
@@ -658,7 +688,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_image_open_c_v.html">ImageOpenCV</a></li>
-    <li class="footer">Generated on Thu Apr 9 2020 23:40:08 for Image Modifier Application by
+    <li class="footer">Generated on Fri Apr 17 2020 14:26:23 for Image Modifier Application by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

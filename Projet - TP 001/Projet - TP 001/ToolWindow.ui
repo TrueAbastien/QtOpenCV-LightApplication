@@ -40,7 +40,7 @@
          <x>29</x>
          <y>19</y>
          <width>161</width>
-         <height>301</height>
+         <height>315</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -48,6 +48,13 @@
          <widget class="QPushButton" name="toolBtnReset">
           <property name="text">
            <string>Reset</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="toolBtnBlackWhite">
+          <property name="text">
+           <string>Monochrome</string>
           </property>
          </widget>
         </item>

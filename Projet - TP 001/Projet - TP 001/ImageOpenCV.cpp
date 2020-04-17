@@ -27,6 +27,12 @@ bool ImageOpenCV::exists() const
 	return !image.empty();
 }
 
+void ImageOpenCV::BlackAndWhite(bool update)
+{
+	cvtColor(image, image, CV_BGR2GRAY);
+	if (update) Update();
+}
+
 void ImageOpenCV::Blur(int radius, bool update)
 {
 	blur(image, image, Size(radius * 2 - 1, radius * 2 - 1));

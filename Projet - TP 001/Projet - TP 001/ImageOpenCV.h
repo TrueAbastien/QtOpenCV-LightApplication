@@ -50,6 +50,14 @@ public:
 
 
 	/**
+	* \brief Transforme l'image en noir et blanc
+	* \param update Force l'update sur l'image si nécessaire
+	*
+	* Transforme manuellement l'image en noir et blanc pour faciliter le traitement d'erosion et de dilation.
+	*/
+	void BlackAndWhite(bool update = true);
+
+	/**
 	* \brief Applique l'effet de Flou sur l'image
 	* \param radius Radius du Kernel de l'application du Flou
 	* \param update Force l'update sur l'image si nécessaire

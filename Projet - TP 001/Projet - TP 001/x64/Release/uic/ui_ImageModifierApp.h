@@ -40,6 +40,7 @@ public:
     QAction *actionReset;
     QAction *actionOpenToolbox;
     QAction *actionDetectObjects;
+    QAction *actionMonochrome;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QHBoxLayout *imgHLayout;
@@ -85,6 +86,8 @@ public:
         actionOpenToolbox->setObjectName(QString::fromUtf8("actionOpenToolbox"));
         actionDetectObjects = new QAction(ImageModifierAppClass);
         actionDetectObjects->setObjectName(QString::fromUtf8("actionDetectObjects"));
+        actionMonochrome = new QAction(ImageModifierAppClass);
+        actionMonochrome->setObjectName(QString::fromUtf8("actionMonochrome"));
         centralWidget = new QWidget(ImageModifierAppClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -101,6 +104,12 @@ public:
         imgHLayout->setObjectName(QString::fromUtf8("imgHLayout"));
         imgOriginal = new QLabel(centralWidget);
         imgOriginal->setObjectName(QString::fromUtf8("imgOriginal"));
+        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(imgOriginal->sizePolicy().hasHeightForWidth());
+        imgOriginal->setSizePolicy(sizePolicy1);
+        imgOriginal->setMaximumSize(QSize(500, 500));
         QFont font;
         font.setPointSize(20);
         font.setBold(true);
@@ -112,6 +121,9 @@ public:
 
         imgTransformed = new QLabel(centralWidget);
         imgTransformed->setObjectName(QString::fromUtf8("imgTransformed"));
+        sizePolicy1.setHeightForWidth(imgTransformed->sizePolicy().hasHeightForWidth());
+        imgTransformed->setSizePolicy(sizePolicy1);
+        imgTransformed->setMaximumSize(QSize(500, 500));
         QFont font1;
         font1.setPointSize(20);
         font1.setBold(true);
@@ -154,6 +166,7 @@ public:
         menuTransform->addAction(actionReset);
         menuTransform->addSeparator();
         menuTransform->addAction(actionBlur);
+        menuTransform->addAction(actionMonochrome);
         menuTransform->addAction(actionErode);
         menuTransform->addAction(actionDilate);
         menuTransform->addAction(actionOpening);
@@ -186,6 +199,7 @@ public:
         actionReset->setText(QApplication::translate("ImageModifierAppClass", "Reset", nullptr));
         actionOpenToolbox->setText(QApplication::translate("ImageModifierAppClass", "Open Toolbox", nullptr));
         actionDetectObjects->setText(QApplication::translate("ImageModifierAppClass", "Detect Objects", nullptr));
+        actionMonochrome->setText(QApplication::translate("ImageModifierAppClass", "Monochrome", nullptr));
         imgOriginal->setText(QApplication::translate("ImageModifierAppClass", "NO IMAGE FOUND", nullptr));
         imgTransformed->setText(QApplication::translate("ImageModifierAppClass", "NO IMAGE FOUND", nullptr));
         menuEdit->setTitle(QApplication::translate("ImageModifierAppClass", "File", nullptr));

@@ -29,6 +29,7 @@ public:
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout_2;
     QPushButton *toolBtnReset;
+    QPushButton *toolBtnBlackWhite;
     QPushButton *toolBtnBlur;
     QPushButton *toolBtnErode;
     QPushButton *toolBtnDilate;
@@ -62,7 +63,7 @@ public:
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         verticalLayoutWidget_2 = new QWidget(groupBox);
         verticalLayoutWidget_2->setObjectName(QString::fromUtf8("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(29, 19, 161, 301));
+        verticalLayoutWidget_2->setGeometry(QRect(29, 19, 161, 315));
         verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -70,6 +71,11 @@ public:
         toolBtnReset->setObjectName(QString::fromUtf8("toolBtnReset"));
 
         verticalLayout_2->addWidget(toolBtnReset);
+
+        toolBtnBlackWhite = new QPushButton(verticalLayoutWidget_2);
+        toolBtnBlackWhite->setObjectName(QString::fromUtf8("toolBtnBlackWhite"));
+
+        verticalLayout_2->addWidget(toolBtnBlackWhite);
 
         toolBtnBlur = new QPushButton(verticalLayoutWidget_2);
         toolBtnBlur->setObjectName(QString::fromUtf8("toolBtnBlur"));
@@ -150,6 +156,7 @@ public:
         Toolbox->setWindowTitle(QApplication::translate("Toolbox", "Toolbox", nullptr));
         groupBox->setTitle(QApplication::translate("Toolbox", "Tools", nullptr));
         toolBtnReset->setText(QApplication::translate("Toolbox", "Reset", nullptr));
+        toolBtnBlackWhite->setText(QApplication::translate("Toolbox", "Monochrome", nullptr));
         toolBtnBlur->setText(QApplication::translate("Toolbox", "Blur", nullptr));
         toolBtnErode->setText(QApplication::translate("Toolbox", "Erode", nullptr));
         toolBtnDilate->setText(QApplication::translate("Toolbox", "Dilate", nullptr));

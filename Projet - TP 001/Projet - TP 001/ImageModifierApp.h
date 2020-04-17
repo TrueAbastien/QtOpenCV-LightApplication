@@ -53,6 +53,8 @@ private:
 	Ui::ImageModifierAppClass ui;
 	ToolboxOpenCV* toolBox;
 
+	QSize imageMaximumWidth;
+
 	/**
 	* \brief Mise à jour à la réinitialisation
 	* \param val Nouvel état du contenu à changer
